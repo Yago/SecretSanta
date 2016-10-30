@@ -1,0 +1,10 @@
+{
+  "apiKey": "API_KEY",
+  "apiSecret": "API_SECRET",
+  "people": [
+    {
+      "name": "NAME",
+      "phone": "41790000000"
+    }
+  ]
+}
