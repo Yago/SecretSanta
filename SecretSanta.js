@@ -10,8 +10,9 @@ const nexmo = new Nexmo({
 
 // Send method
 const sendMessage = (name, to) => {
-  nexmo.message.sendSms('Santa2016', to, `Cette année, tu devras faire plaisir à ${name} !`);
-  console.log('sended');
+  nexmo.message.sendSms('Noel2016', to, `Cette année, tu devras faire plaisir à ${name} ! (le SMS Santa2016 ne doit pas etre pris en compte))`, {}, () => {
+    console.log('sended');
+  });
 };
 
 // Return a random number except 1 (himself)
@@ -24,9 +25,16 @@ const max = config.people.length - 1;
 const factor = generateFactor(max);
 
 // Based on factor, assign a name for each person.
-config.people.map((person, key) => {
+const personIterator = (key = 0) => {
   const index = (key + factor) > (max + 1) ? key + factor - (max + 1) : key + factor;
-  sendMessage(config.people[index - 1].name, person.phone);
-});
+  sendMessage(config.people[index - 1].name, config.people[key].phone);
+  if (key < max) {
+    setTimeout(() => {
+      personIterator(key + 1);
+    }, 1000);
+  } else {
+    console.log('Done !');
+  }
+};
 
-console.log('Done !');
+personIterator();
