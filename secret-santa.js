@@ -1,6 +1,10 @@
-const config = require('./gouffon-config.json');
 
 class SecretSanta {
+  /**
+   * Creates an instance of SecretSanta.
+   * @param {Array} array - array of people [{ name, phone },...]
+   * @memberof SecretSanta
+   */
   constructor(array) {
     this.array = array;
   }
@@ -37,7 +41,7 @@ class SecretSanta {
    * 
    * @param {Array} a - reference array
    * @param {Array} b - randomized array
-   * @param {string} key - comparison key
+   * @param {string} key - comparison key (f.ex `name`)
    * @returns {boolean}
    * @memberof SecretSanta
    */
@@ -61,10 +65,9 @@ class SecretSanta {
 
     const validated = this.array.map((person, i) => {
       return {
-        // valid: person.name === randomized[i].name,
+        from: person.name,
         phone: person.phone,
-        // name: person.name,
-        assigned: randomized[i].name,
+        to: randomized[i].name,
       };
     });
 
@@ -72,6 +75,4 @@ class SecretSanta {
   }
 }
 
-const secret = new SecretSanta(config.people);
-
-console.log(secret.build());
+module.exports = SecretSanta;

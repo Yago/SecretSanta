@@ -2,3 +2,4 @@
 node_modules
 SecretSanta.bundle.js
 *.DS_Store
+backups/*.json

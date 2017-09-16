@@ -1,0 +1,10 @@
+{
+  "apiKey": "NEXMO_API_KEY",
+  "apiSecret": "NEXMO_API_SECRET",
+  "people": [
+    {
+      "name": "NAME",
+      "phone": "PHONE_NUMBER"
+    }
+  ]
+}

@@ -4,8 +4,8 @@
   "description": "",
   "main": "secret-santa.js",
   "scripts": {
-    "start": "node secret-santa.js",
-    "dev": "nodemon secret-santa.js"
+    "send": "node index.js",
+    "start": "nodemon index.js --ignore 'backups/**/*'"
   },
   "author": "Yago",
   "license": "MIT",
